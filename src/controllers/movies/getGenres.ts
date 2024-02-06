@@ -5,6 +5,7 @@ const getGenres: ApiHandler = async (req, res) => {
   try {
     const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.TMDB_API_KEY}&language=en-US`
 
+    console.log(url, "url")
     const data = await axios
       .get(url)
       .then((response) => response.data)

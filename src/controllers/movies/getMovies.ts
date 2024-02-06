@@ -10,7 +10,9 @@ const getMovies: ApiHandler = async (req, res) => {
     if (genre) url += `&with_genres=${genre}`
     if (year) url += `&primary_release_year=${year}`
     if (rating) url += `&vote_average.gte=${rating}`
-    if (sortBy) url += `&sort_by=${sortBy}`
+    if (sortBy) url += `&sort_by=${sortBy}.desc`
+
+    console.log("url", url, "url")
 
     const data = await axios
       .get(url)

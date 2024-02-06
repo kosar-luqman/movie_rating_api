@@ -4,7 +4,8 @@ import findMovieById from "../../helpers/findMovieById"
 
 const createReview: ApiHandler = async (req, res) => {
   try {
-    const { username, rating, comment, movieId } = req.body
+    const { username, rating, comment } = req.body.data
+    const movieId = req.params.movieId
 
     // Check if the movie exists
     const movieExists = await findMovieById(movieId)
